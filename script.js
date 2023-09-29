@@ -26,7 +26,9 @@ var includeSpecialCharacters;
 var uppercase;
 var lowercase;
 var finalPassword = "";
-var arrcontainer = []
+var arrcontainer = [];
+var randomNumber = 0;
+var randomPassword = "";
 
 
 function getARandomNumber(min,max){
@@ -34,7 +36,8 @@ function getARandomNumber(min,max){
 }
 
 function generatePassword(){
-  arrcontainer = []
+  arrcontainer = [];
+  randomPassword = "";
   numberOfCharacters = prompt("How many characters?")
   numberOfCharacters = Math.floor (numberOfCharacters)
   if (isNaN(numberOfCharacters) || numberOfCharacters < 8 || numberOfCharacters > 128 ) {
@@ -45,24 +48,38 @@ function generatePassword(){
   uppercase = confirm("Do you want uppercase letters?")
     if (uppercase) {
       arrcontainer.push("A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
-      console.log(arrcontainer)
+   
     }
   lowercase = confirm("Do you want lowercase letters?")
     if (lowercase) {
       arrcontainer.push("a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z")
-      console.log(arrcontainer)
+    
     }
   includeSpecialCharacters = confirm("Do you want special characters?")
     if (includeSpecialCharacters) {
+      // this is ridiculously stressful, get a magnifying glass ready in order to type this one out
       arrcontainer.push("#","$","%","&",",","(",")","*","+","-",".","/",":",";","<","=",">","?","@","[","]","^","_","{","|","}","~")
     }
   includeNumbers = confirm("Do you want numbers?")
+    if (includeNumbers) {
+      arrcontainer.push("0","1","2","3","4","5","6","7","8","9")
+    }
 
+  if (arrcontainer.length === 0) {
+    alert("PLEASE SAY YES TO SOMETHING")
+    return;
+  }
 
-  var randomNumber = getARandomNumber()
-  finalPassword = finalPassword + randomNumber;
+  getARandomPassword()
+  return randomPassword;
 }
 
+function getARandomPassword() {
+  for ( var i = 0; i < numberOfCharacters; i++) {
+    randomNumber = getARandomNumber(0, arrcontainer.length)
+  randomPassword = randomPassword + arrcontainer[randomNumber]
+  }
+}
 
 
 // Write password to the #password input

@@ -5,3 +5,9 @@ This assignment stressed the importance of being able to generate code using var
 ## Knowledge
 
 This readme is a pretty straighforward one. Create a website that'll generate a password using lowercase, uppercase, numbers, and other special characters that the user of the website will be prompted on if they'd like to use them. The code must be between 8 and 128 characters.
+
+Link to the github portfolio repository: [https://github.com/cddoigkn/password-generator](https://github.com/cddoigkn/password-generator)
+
+Link to the password generator website: [https://cddoigkn.github.io/password-generator/](https://cddoigkn.github.io/password-generator/)
+
+![This is a screenshot of the password generator](./assets/images/passwordgenerator.png)
