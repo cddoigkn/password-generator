@@ -23,9 +23,10 @@ var generateBtn = document.querySelector("#generate");
 var numberOfCharacters;
 var includeNumbers;
 var includeSpecialCharacters;
-
+var uppercase;
+var lowercase;
 var finalPassword = "";
-
+var arrcontainer = []
 
 
 function getARandomNumber(min,max){
@@ -33,7 +34,28 @@ function getARandomNumber(min,max){
 }
 
 function generatePassword(){
+  arrcontainer = []
   numberOfCharacters = prompt("How many characters?")
+  numberOfCharacters = Math.floor (numberOfCharacters)
+  if (isNaN(numberOfCharacters) || numberOfCharacters < 8 || numberOfCharacters > 128 ) {
+    alert("Invalid Answer!");
+    return;
+  }
+
+  uppercase = confirm("Do you want uppercase letters?")
+    if (uppercase) {
+      arrcontainer.push("A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+      console.log(arrcontainer)
+    }
+  lowercase = confirm("Do you want lowercase letters?")
+    if (lowercase) {
+      arrcontainer.push("a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z")
+      console.log(arrcontainer)
+    }
+  includeSpecialCharacters = confirm("Do you want special characters?")
+    if (includeSpecialCharacters) {
+      arrcontainer.push("#","$","%","&",",","(",")","*","+","-",".","/",":",";","<","=",">","?","@","[","]","^","_","{","|","}","~")
+    }
   includeNumbers = confirm("Do you want numbers?")
 
 
